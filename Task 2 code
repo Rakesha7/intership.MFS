@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        /* Reset some default browser styles */
+        body, h1, h2, p, a {
+            margin: 0;
+            padding: 0;
+            font-family: 'Verdana', sans-serif;
+        }
+
+        /* Style the body */
+        body {
+            background-color: #f0f0f0;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        /* Container to center content and give padding */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 70px 20px;
+            text-align: center;
+            border-bottom: 4px solid #0056b3;
+        }
+
+        header h1 {
+            font-size: 3em;
+        }
+
+        header p {
+            font-size: 1.3em;
+        }
+
+        /* Call-to-action section styling */
+        .cta {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 50px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .cta h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .cta .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 1.1em;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .cta .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Contact form styling */
+        .contact-form {
+            background-color: white;
+            padding: 25px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: calc(100% - 22px);
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+
+        .contact-form input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border: none;
+            padding: 15px;
+            font-size: 1.1em;
+            border-radius: 5px;
+        }
+
+        .contact-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Slideshow styling */
+        .slideshow {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .slideshow img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            border-top: 4px solid #0056b3;
+        }
+
+        /* Toggle content styling */
+        .toggle-content {
+            display: none;
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 200px) {
+            .container {
+                width: 60%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Welcome to Our Service</h1>
+            <p>Your journey to success begins here.</p>
+        </div>
+    </header>
+
+    <!-- Call-to-action section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Are you ready?</h2>
+            <p>Take the first step towards a brighter future with us.</p>
+            <a href="#signup" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="container">
+        <h2>Get in Touch</h2>
+        <form class="contact-form" id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <input type="submit" value="Send Message">
+        </form>
+    </section>
+
+    <!-- Image Slideshow Section -->
+    <section class="container slideshow">
+        <h2>Gallery</h2>
+        <img src="image1.jpg" id="slide1" alt="Gallery Image 1">
+        <img src="image2.jpg" id="slide2" alt="Gallery Image 2">
+        <img src="image3.jpg" id="slide3" alt="Gallery Image 3">
+    </section>
+
+    <!-- Toggle Content Section -->
+    <section class="container">
+        <button id="toggleButton">More Information</button>
+        <div class="toggle-content" id="moreInfo">
+            <p>Discover more about our services and how we can assist you in achieving your goals. Click the button above to toggle this content.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactive elements -->
+    <script>
+        // Form validation
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+
+            if (!name || !email || !message) {
+                alert('Please fill out all fields.');
+                event.preventDefault();
+            } else {
+                alert('Form submitted successfully!');
+            }
+        });
+
+        // Simple image slideshow
+        var currentSlide = 1;
+        var totalSlides = 3;
+
+        function showSlide(slideIndex) {
+            for (var i = 1; i <= totalSlides; i++) {
+                document.getElementById('slide' + i).style.display = 'none';
+            }
+            document.getElementById('slide' + slideIndex).style.display = 'block';
+        }
+
+        setInterval(function() {
+            currentSlide++;
+            if (currentSlide > totalSlides) {
+                currentSlide = 1;
+            }
+            showSlide(currentSlide);
+        }, 3000); // Change image every 3 seconds
+
+        // Toggle content
+        document.getElementById('toggleButton').addEventListener('click', function() {
+            var content = document.getElementById('moreInfo');
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                this.textContent = 'Hide Information';
+            } else {
+                content.style.display = 'none';
+                this.textContent = 'More Information';
+            }
+        });
+    </script>
+</body>
+</html>
